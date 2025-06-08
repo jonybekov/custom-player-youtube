@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.player {
+  --progress-height: 4px;
+  width: 600px;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+.controls {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.controls-bg-gradient {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAACKCAYAAABrYiCSAAAAAXNSR0IArs4c6QAAAOpJREFUKFNlyFdHKHAAxuH23nvvvfde57Snw5FIEkkkiSSSRBJJIokkkUT6kHlu/je9F4+fNyLi1yI9UYhGDGIDcSoeCUgMJKlkpCAVaYF0lYFMZAWyVQ5ykYf8QIEqRBGKAyWqFGUoR0WgUlWhGjWBWlWHejSgMdCkmtGC1kCbakcHOtEV6FY96EVfoF8NYBBDGA6MqFGMYTwwof7gLyYxFZhWM5jFXGBeLWARS1jGCv7hP1axhnVsYBNb2MYOdrGHfRzgEEc4xglOcYZzXOASV7jGDW5xh3s84BFPeMYLXvGGd3zgE1/4/gFl+yKmd3BCBAAAAABJRU5ErkJggg==);
+  height: 138px;
+  width: 100%;
+  z-index: 0;
+  background-repeat: repeat-x;
+}
+
+.player video {
+  width: 100%;
+  height: 100%;
+}
+
+.progress {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.progress-padding {
+  height: 1rem;
+}
+
+.progress-bar {
+  position: relative;
+  height: var(--progress-height);
+  background-color: #e2e2e2;
+}
+
+/* TODO: Add scale effect when hover */
+/* .progress-bar:hover .progress-buffer,
+  .progress-bar:hover .progress-played {
+    transform: scaleY(1.1);
+  } */
+
+.progress-buffer {
+  background-color: #b4b4b4;
+  width: 0%;
+  height: 100%;
+  position: absolute;
+}
+
+.progress-played {
+  background-color: red;
+  width: 0%;
+  top: 0;
+  height: var(--progress-height);
+  position: absolute;
+}
+
+.progress-played::after {
+  --size: 14px;
+
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  background-color: red;
+  right: 0;
+  top: 50%;
+  transform: translateX(calc(var(--size) / 2)) translateY(-50%);
+  border-radius: 9999px;
+}
+
+.controls-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.controls-bottom .bottom-left,
+.controls-bottom .bottom-right {
+  display: flex;
+  align-items: center;
+}
+
+.controls-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.btn__play-pause {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: white;
+  padding: 0;
+}
+
+.svg-fill {
+  fill: white;
+}
+
+.display-time {
+  display: flex;
+  gap: 0.25rem;
+  color: #ddd;
+  font-size: 0.75rem;
+  font-weight: 400;
+
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  z-index: 1;
+}
